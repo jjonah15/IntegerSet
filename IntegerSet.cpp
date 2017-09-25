@@ -8,7 +8,11 @@ Homework 2
 #include <iostream>
 using namespace std;
 
-IntegerSet::IntegerSet()
+IntegerSet::IntegerSet(int size)
 {
-
+	intSet = new int[size]; // +1 ??
+}
+IntegerSet::~IntegerSet()
+{
+	delete[] intSet;
 }

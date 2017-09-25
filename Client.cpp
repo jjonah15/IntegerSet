@@ -12,6 +12,7 @@ using namespace std;
 
 int main()
 {
+	IntegerSet test(5);
 	system("PAUSE");
 	return 0;
 }
