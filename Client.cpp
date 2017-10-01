@@ -19,6 +19,18 @@ int main()
 	test.insertElement(4);
 	test.printSet();
 
+	IntegerSet test2(5);
+	test2.insertElement(3);
+
+	test2.insertElement(1);
+	test2.insertElement(4);
+	test2.printSet();
+
+	if (test.isEqual(&test2) == true)
+	{
+		cout << "true" << endl;
+	}
+
 	system("PAUSE");
 	return 0;
 }

@@ -48,6 +48,6 @@ class IntegerSet
 		bool insertElement(int);
 		void printSet() const;
 		bool deleteElement(int);
-		bool isEqual(IntegerSet);
+		bool isEqual(IntegerSet*) const;
 };
 #endif
