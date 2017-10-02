@@ -48,10 +48,10 @@ IntegerSet* IntegerSet::intersectionOfSets(IntegerSet* compareSet, IntegerSet* i
 	//setPtr = &combinedSet;
 	for (int i = 0; i < setSize; i++)
 	{
-		if (*(intSet + i) == 1 && interSet->intSet[i] == 1)
+		if (*(intSet + i) == 1 && compareSet->intSet[i] == 1)
 		{
 			interSet->intSet[i] = 1;
-			cout << "ASDASD";
+			//cout << "ASDASD";
 		}
 	}
 	return interSet;
@@ -102,7 +102,7 @@ void IntegerSet::printSet() const
 	}
 	cout << endl;
 }
-bool IntegerSet::isEqual(IntegerSet* compareSet) const
+bool IntegerSet::isEqual(IntegerSet* compareSet)
 //argument is pointer so that you can use the structure pointer operator, ->, to call
 //the member variable of the argument
 {
