@@ -12,24 +12,48 @@ using namespace std;
 
 int main()
 {
-	IntegerSet test(5);
-	test.insertElement(3);
+	int arr[10] = {1,1,1,1,1,1,1,1,1,1 };
+	IntegerSet testArr(arr, 10);
+	testArr.printSet();
 
-	test.insertElement(1);
-	test.insertElement(4);
-	test.printSet();
+	IntegerSet test1(10);
+	test1.insertElement(3);
+	test1.insertElement(1);
+	test1.insertElement(5);
+	test1.insertElement(7);
+	test1.insertElement(9);
+	test1.printSet();
 
-	IntegerSet test2(5);
-	test2.insertElement(3);
-
-	test2.insertElement(1);
+	IntegerSet test2(10);
+	test2.insertElement(2);
 	test2.insertElement(4);
+	test2.insertElement(6);
+	test2.insertElement(8);
+	test2.insertElement(10);
 	test2.printSet();
+	
+	IntegerSet test3(10);
+	test3.insertElement(0);
+	test3.insertElement(5);
+	test3.insertElement(9);
+	test3.insertElement(2);
 
-	if (test.isEqual(&test2) == true)
-	{
-		cout << "true" << endl;
-	}
+	IntegerSet test4(10);
+	test4.insertElement(3);
+	test4.insertElement(5);
+	test4.insertElement(7);
+
+	IntegerSet unionSet(10);
+	IntegerSet* setPtr = nullptr;
+	setPtr = &unionSet;
+	setPtr = test3.unionOfSets(&test4, &unionSet);
+	unionSet.printSet();
+
+	IntegerSet interSet(10);
+	setPtr = nullptr;
+	setPtr = &interSet;
+	setPtr = test3.intersectionOfSets(&test4, &interSet);
+	interSet.printSet();
 
 	system("PAUSE");
 	return 0;
