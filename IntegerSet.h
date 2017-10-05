@@ -1,13 +1,11 @@
 /*
-April Shin
 Jonah Moon
+Partnered with April Shin
 CS 137
 Homework 2
 
 *******************************************************************************************
-                                IntegerSet
--------------------------------------------------------------------------------------------
-	-intSet1[]
+ 	-intSet1[]
 	destructor
 	unionOfSets(either 2 integerset parameter or one)
 		argument will be an integerSet then it will return a new integer set
@@ -24,8 +22,22 @@ Homework 2
 	each array has the indexes value in it
 	default constructor takes one arguement(the size) then allocates memory then initialize array with all zeroes
 	destructor to destroy the allocated memory
+*********************************************************************************************
 
+								IntegerSet
+-------------------------------------------------------------------------------------------
+	-*intSet : int
+	- setSize : int
 
+	+IntegerSet(int)
+	+IntegerSet(int*, int)
+	+~IntegerSet()
+	+unionOfSets(IntegerSet*,IntegerSet*) : IntegerSet*
+	+intersectionOfSets(IntegerSet*,IntegerSet*) : IntegerSet*
+	+printSet() : void
+	+insertElement(int) : bool
+	+deleteElement(int) : bool
+	+isEqual(IntegerSet*) : bool
 
 -------------------------------------------------------------------------------------------
 */
@@ -44,11 +56,11 @@ class IntegerSet
 		IntegerSet(int);
 		IntegerSet(int*, int);
 		~IntegerSet();
-		IntegerSet* unionOfSets(IntegerSet*,IntegerSet*);
-		IntegerSet* intersectionOfSets(IntegerSet*,IntegerSet*);
+		IntegerSet* unionOfSets(const IntegerSet*);
+		IntegerSet* intersectionOfSets(const IntegerSet*,const IntegerSet*);
 		bool insertElement(int);
 		void printSet() const;
 		bool deleteElement(int);
-		bool isEqual(IntegerSet*);
+		bool isEqual(IntegerSet*)const;
 };
 #endif

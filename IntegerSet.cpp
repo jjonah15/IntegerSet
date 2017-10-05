@@ -1,6 +1,6 @@
 /*
-April Shin
 Jonah Moon
+Partnered with April Shin
 CS 137
 Homework 2
 */
@@ -26,32 +26,38 @@ IntegerSet::IntegerSet(int* arr, int size)
 		*(intSet + i) = *(arr + i);
 	}
 }
-IntegerSet* IntegerSet::unionOfSets(IntegerSet* compareSet, IntegerSet* unionSet)
+IntegerSet* IntegerSet::unionOfSets(const IntegerSet* compareSet)
 {
 	//first compare the sets and start creating new set with both values
-	//IntegerSet combinedSet(setSize);
-	//IntegerSet *setPtr = nullptr;
-	//setPtr = &combinedSet;
+	IntegerSet* unionSet = new IntegerSet(compareSet->setSize);
+
 	for (int i = 0; i < setSize; i++)
 	{
-		if (*(intSet + i) == 1 || compareSet->intSet[i] == 1)
+		if (intSet[i] == 1 || compareSet->intSet[i] == 1)
 		{
 			unionSet->intSet[i] = 1;
+			cout << "test" << endl;
+		}
+		else
+		{
+			unionSet->intSet[i] = 0;
 		}
 	}
 	return unionSet;
 }
-IntegerSet* IntegerSet::intersectionOfSets(IntegerSet* compareSet, IntegerSet* interSet)
+IntegerSet* IntegerSet::intersectionOfSets(const IntegerSet* set1,const IntegerSet* set2)
 {
-	//IntegerSet combinedSet(setSize);
-	//IntegerSet *setPtr = nullptr;
-	//setPtr = &combinedSet;
+	IntegerSet* interSet = new IntegerSet(set1->setSize);
+
 	for (int i = 0; i < setSize; i++)
 	{
-		if (*(intSet + i) == 1 && compareSet->intSet[i] == 1)
+		if (set1->intSet[i] == 1 && set2->intSet[i] == 1)
 		{
 			interSet->intSet[i] = 1;
-			//cout << "ASDASD";
+		}
+		else
+		{
+			interSet->intSet[i] = 0;
 		}
 	}
 	return interSet;
@@ -102,12 +108,10 @@ void IntegerSet::printSet() const
 	}
 	cout << endl;
 }
-bool IntegerSet::isEqual(IntegerSet* compareSet)
+bool IntegerSet::isEqual(IntegerSet* compareSet) const
 //argument is pointer so that you can use the structure pointer operator, ->, to call
 //the member variable of the argument
 {
-	//IntegerSet *setPtr = nullptr;
-	//setPtr = &compareSet;
 	bool status;
 	for (int i = 0; i < setSize; i++)
 	{
